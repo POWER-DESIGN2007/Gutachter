@@ -1,0 +1,401 @@
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="KFZ Gutachter in Koblenz - SGS Kfz-Sachverständiger Oktay Sengülsen. Schnelle Unfallgutachten und professionelle Fahrzeugbewertung" />
+    <title>SGS Gutachter Koblenz - SGS Sachverständiger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <Link rel="style.css" />
+    <!-- <Link rel="stylesheet" href="index.Gutachter.style.css" /> -->
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #fff;
+            color: #0a0a0a;
+            overflow-x: hidden;
+        }
+        
+        .intro {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #0a0a0a;
+            color: #fff;
+            z-index: 9999;
+            transition: opacity .8s ease, visibility .8s ease;
+            font-size: 1.5rem;
+            font-weight: 600;
+            overflow: hidden;
+        }
+        
+        .intro.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: gray;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 14px 20px;
+            z-index: 1000;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        
+        header .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        header nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+        
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-left: 0;
+            font-size: 0.95rem;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: url('Hintergrund.jpeg') no-repeat center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 160px 20px 20px;
+            color: #fff;
+            background-blend-mode: multiply;
+            background-color: rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #969696;
+            font-weight: 700;
+            max-width: 600px;
+        }
+        
+        .hero h2 {
+            color: #8D323A;
+        }
+        
+        .hero button {
+            margin-top: 20px;
+            background: #fff;
+            color: #0a2342;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .hero button:hover {
+            background: #e6e6e6;
+        }
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+            text-align: left;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .popup h3 {
+            margin-top: 0;
+        }
+        
+        .popup i {
+            margin-right: 8px;
+            color: #0a2342;
+        }
+        
+        .popup button {
+            margin-top: 10px;
+            background: #0a2342;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .mail-btn {
+            background-color: #8B0000;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .mail-btn:hover {
+            background-color: #a80000;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            background: #f0f0f0;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 14px;
+            }
+            header .logo {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            header nav {
+                gap: 8px;
+            }
+            header nav a {
+                font-size: 0.9rem;
+                padding: 7px 10px;
+            }
+            .hero {
+                padding-top: 170px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- In diesem Div Box ist das Willkommensintro  -->
+    <div class="intro" id="intro">
+        <div>Willkommen</div>
+        <div>SGS Gutachter Koblenz</div>
+    </div>
+
+    <!-- Hier ist die Reihe von der Blauen Anzeige -->
+    <header>
+        <div class="logo">SGS Gutachter Koblenz</div>
+
+
+        <nav>
+            <a href="#" onclick="toggleUeberUnsPopup(event)"><i class="fas fa-user"></i> Über uns</a>
+            <a href="#" onclick="toggleKontaktPopup(event)"><i class="fas fa-address-book"></i> Kontakt</a>
+            <a href="#" onclick="toggleOefnungszeitenPopup(event)"><i class="fas fa-clock"></i> Öffnungszeiten</a>
+            <a href="#" onclick="toggleImpressumPopup(event)"><i class="fas fa-book"></i> Impressum</a>
+            <a href="#" onclick="toggleDatenschutzerklearungPopup(event)"><i class="fas fa-book"></i> Datenschutzerklärung </a>
+        </nav>
+    </header>
+
+
+    <!-- Hier ist der Hauptbereich -->
+    <section class="hero">
+        <h1>Oktay Sengülsen</h1>
+        <h2>KFZ-Sachverständiger</h2>
+        <button onclick="window.location.href='tel:+49123456789'">Jetzt anrufen: +49 176 40388511</button>
+
+
+        <!-- Neuer Standort-Button -->
+        <button onclick="window.open('https://www.google.com/maps?q=Josef-Cornelius-Str.31 56070 Koblenz', '_blank')">📍 Standort: Koblenz</button>
+
+    </section>
+
+
+    <!-- Kategorien popup -->
+
+    <div class="popup" id="ueberUnsPopup">
+        <h3>Über uns</h3>
+        <button class="social-btn" onclick="window.open('https://www.tiktok.com/@sgs.gutachter.koblenz','_blank')"><i class="fab fa-tiktok"></i> TikTok</button>
+        <button class="social-btn" onclick="window.open('https://www.instagram.com/sgs_kfz_gutachter','_blank')"><i class="fab fa-instagram"></i> Instagram</button>
+        <button onclick="toggleUeberUnsPopup()">Schließen</button>
+    </div>
+
+    <div class="popup" id="kontaktPopup">
+        <h3>Kontakt</h3>
+        <p><i class="fas fa-phone"></i> +49 176 40388511</p>
+        <p><i class="fas fa-envelope"></i> info@sgs-gutachter.de</p>
+
+        <!-- Button der dafür sorgt eine Email zu schreiben -->
+        <button class="mail-btn" onclick="window.open(
+        'https://mail.google.com/mail/?view=cm&fs=1&to=info@sgs-gutachter.de&su=Betreff&body=Hallo...',
+          '_blank'
+        )">
+         Mit Gmail schreiben
+        </button>
+
+        <button onclick="toggleKontaktPopup()">Schließen</button>
+    </div>
+
+    <div class="popup" id="OefnungszeitenPopup">
+        <h3>Öffnungszeiten</h3>
+        <p> Montag: <strong> 08:00 - 18:00 </strong> </p>
+        <P>Dienstag: <strong> 08:00 - 18:00 </strong> </P>
+        <p>Mittwoch: <strong> 08:00 - 18:00 </strong> </p>
+        <p>Donnerstag: <strong> 08:00 - 18:00 </strong> </p>
+        <p>Freitag: <strong> 08:00 - 18:00 </strong> </p>
+        <p>Samstag: <strong> 08:00 - 16:00 </strong> </p>
+        <p>Sonntag: <strong> Geschlossen </strong></p>
+        <button onclick="toggleOefnungszeitenPopup()">Schließen</button>
+    </div>
+
+
+    <div class="popup" id="ImpressumPopup">
+        <h3>Impressum</h3>
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p><strong><u>SGS Kfz- KfZ-Sachverständiger Koblenz</u></strong></p>
+        <p>Oktay Sengülsen</p>
+        <p>Arenberger Str. 71, 56077 Kobkenz</p>
+
+        <h4><strong><u>Kontakt:</u></strong></h4>
+        <p>Telefon: 0176 40388511</p>
+        <p>E-Mail: info@sgs-gutachter.de</p>
+
+        <h4><strong><u>Vertreten durch:</u></strong></h4>
+        <p>Oktay Sengülsen</p>
+
+        <h4><strong><u>Berufsbezeichung</u></strong></h4>
+        <p>KFZ-Sachverständiger</p>
+        <button onclick="toggleImpressumPopup()">Schließen</button>
+    </div>
+
+    <div class="popup" id="DatenschutzerklearungPopup">
+        <h3>Datenschutzerklärung</h3>
+        <h4><strong><U>1. Verantwortlicher</U></strong></h4>
+        <p>SGS Kfz-Sachverständiger Koblenz</p>
+        <p>Oktay Sengülsen</p>
+        <p>Arenberger Str. 71, 56077 Kobkenz</p>
+        <p>Telefon: 0176 40388511</p>
+        <p>E-Mail: info@sgs-gutachter.de</p>
+
+        <h4><strong><u>2. Erhebung und Speicherung personenbezogener Daten</u></strong></h4>
+        <p>Wir verarbeiten personenbezogene Daten (z.b Name,Telefonnumer,E-Mail-Adresse),die Sie uns freiwillig mitteilen etwa per Telefon oder E-Mail.</p>
+
+        <h3><strong><u>3. Zwecke der Datenverarbeitung</u></strong></h3>
+        <p>- zur Kontaktaufnahme und Terminvereinbarung</p>
+        <p>- zur Erstellung von Kfz-Gutachten</p>
+        <p>zur Rechnungsstellung und Abwicklung von Aufträgen</p>
+
+        <h3><strong><u>4. Rechtsgrundlage</u></strong></h3>
+        <p>Die Verarbeitung erfolgt auf Grundlage von Art.6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interersse).</p>
+
+        <h3><strong><u>5. Weitergabe von Daten</u></strong></h3>
+        <p>Ihre Daten werden nicht an Dritte weitergegeben, außer: </p>
+        <p>- an Versicherungen / Rechtsanwälte im Rahmen des Gutachtens</p>
+        <p>- an Dienstleister (z.b Webhosting) </p>
+
+        <h3><strong><u>6. Nutzung von Google Maps / Social Media</u></strong></h3>
+        <p>Unsere Website kann Dienste wie Google Maps oder Links zu Tiktok / Instagram enthalten. Bei Nutzung werden Daten (z.b IP-Adresse) an diese Anbieter übertragen. Die Datenschutzrichtlinien der Anbieter gelten zusätzlich</p>
+
+        <h3><strong><u>7. Cookies</u></strong></h3>
+        <p>Unsere Website verwendet ggf. Cookies, um die Nutzung zu verbessern. Sie können Cookies in ihrem Browser deaktivieren</p>
+
+        <h3><strong><u>8. Speicherdauer</u></strong></h3>
+        <p>Wir speichern personenbezogene Daten nur so lange, wie es für die Bearbeitung und gesetzliche Aufbewahrungsfristen erforderlich ist.</p>
+
+        <h3><strong><u>9. Rechte der Betroffenen</u></strong></h3>
+        <p>Sie haben das Recht auf:</p>
+        <p>- Auskunft (Art. 15 DSGVO)</p>
+        <p>- Berichtigung (Art 16 DSGVO)</p>
+        <p>- Löschung (Art. 17 DSGVO)</p>
+        <p>- Einschränlung der Verarbeitung (Art. 18 DSGVO)</p>
+        <p>- Datenübertragungen (Art. 20 DSGVO)</p>
+        <p>- Widerspruch (Art. 21 DSGVO)</p>
+
+        <h3><strong><u>10. Beschwerderecht</u></strong></h3>
+        <p>Sie können sich bei der zuständigen Datenschutzbehörde beschwären:</p>
+        <p>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz Hintere Bleiche 34 55116 Mainz</p>
+
+
+
+        <button onclick="toggleDatenschutzerklearungPopup()">Schließen</button>
+    </div>
+
+
+
+    <script>
+        setTimeout(() => document.getElementById('intro').classList.add('is-hidden'), 2000);
+
+        function toggleKontaktPopup(e) {
+            if (e) e.preventDefault();
+            const popup = document.getElementById('kontaktPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleUeberUnsPopup(e) {
+            if (e) e.preventDefault();
+            const popup = document.getElementById('ueberUnsPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleOefnungszeitenPopup(e) {
+            if (e) e.preventDefault();
+            const popup = document.getElementById('OefnungszeitenPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleImpressumPopup(e) {
+            if (e) e.preventDefault();
+            const popup = document.getElementById('ImpressumPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleDatenschutzerklearungPopup(e) {
+            if (e) e.preventDefault();
+            const popup = document.getElementById('DatenschutzerklearungPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+
+</html>
