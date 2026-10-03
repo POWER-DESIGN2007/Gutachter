@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="SGS Kfz-Sachverständiger in Koblenz – Unfallgutachten, Fahrzeugbewertung und persönliche Beratung.">
+
+    <title>SGS Gutachter Koblenz</title>
+
+    <style>
+         :root {
+            --rot: #9c3842;
+            --rot-dunkel: #72272e;
+            --rot-hell: #e98089;
+            --schwarz: #090b0e;
+            --dunkel: #121519;
+            --text: #20242a;
+            --grau: #69717b;
+            --hellgrau: #f4f5f6;
+            --weiss: #ffffff;
+            --schatten: 0 24px 70px rgba(0, 0, 0, 0.25);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            min-width: 320px;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--weiss);
+        }
+        
+        body.popup-offen {
+            overflow: hidden;
+        }
+        
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+        /* =====================================
+           WILLKOMMENSANZEIGE
+        ===================================== */
+        
+        .intro {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--weiss);
+            background: var(--schwarz);
+            animation: introAusblenden 0.7s ease 1.7s forwards, introEntfernen 0s linear 2.4s forwards;
+        }
+        
+        .intro-inhalt {
+            padding: 25px;
+            text-align: center;
+            animation: introInhalt 0.7s ease;
+        }
+        
+        .intro-logo {
+            width: 82px;
+            height: 82px;
+            margin: 0 auto 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        
+        .intro h2 {
+            margin: 0;
+            font-size: clamp(2rem, 6vw, 2.8rem);
+        }
+        
+        .intro p {
+            margin: 10px 0 0;
+            color: #bbc0c7;
+        }
+        
+        @keyframes introInhalt {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes introAusblenden {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        
+        @keyframes introEntfernen {
+            to {
+                display: none;
+                pointer-events: none;
+            }
+        }
+        /* =====================================
+           NAVIGATION
+        ===================================== */
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(13, 16, 20, 0.94);
+            backdrop-filter: blur(14px);
+        }
+        
+        .navigation {
+            position: relative;
+            width: min(1160px, calc(100% - 40px));
+            min-height: 76px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 0;
+            padding: 0;
+            color: var(--weiss);
+            background: transparent;
+            text-align: left;
+        }
+        
+        .logo-symbol {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 12px;
+            color: var(--weiss);
+            background: var(--rot);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text {
+            color: var(--weiss);
+        }
+        
+        .logo-text strong {
+            display: block;
+            color: var(--weiss);
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+        
+        .logo-text small {
+            display: block;
+            margin-top: 3px;
+            color: #bdc2c9;
+            font-size: 0.72rem;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        nav button {
+            min-height: 42px;
+            padding: 0 12px;
+            border: 0;
+            border-radius: 9px;
+            color: #e7e9ec;
+            background: transparent;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        nav button:hover,
+        nav button:focus-visible {
+            color: var(--weiss);
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+        
+        .menue-button {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 11px;
+            color: var(--weiss);
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 1.4rem;
+        }
+        /* =====================================
+           STARTBEREICH
+        ===================================== */
+        
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--weiss);
+            background: linear-gradient( 90deg, rgba(7, 9, 12, 0.98) 0%, rgba(7, 9, 12, 0.91) 38%, rgba(7, 9, 12, 0.55) 67%, rgba(7, 9, 12, 0.18) 100%), url("Hintergrund.jpeg") center / cover no-repeat;
+        }
+        
+        .hero-inhalt {
+            position: relative;
+            z-index: 2;
+            width: min(1160px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 140px 0 85px;
+        }
+        
+        .standort-hinweis {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.07);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        
+        .standort-punkt {
+            width: 9px;
+            height: 9px;
+            display: inline-block;
+            border-radius: 50%;
+            background: var(--rot-hell);
+        }
+        
+        .hero h1 {
+            max-width: 850px;
+            margin: 27px 0 12px;
+            color: var(--weiss);
+            font-size: clamp(3.1rem, 7vw, 6rem);
+            line-height: 0.98;
+            letter-spacing: -4px;
+        }
+        
+        .hero h1 span {
+            color: #cbd0d6;
+        }
+        
+        .hero h2 {
+            margin: 0 0 20px;
+            color: var(--rot-hell);
+            font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+        }
+        
+        .hero-beschreibung {
+            max-width: 640px;
+            margin: 0;
+            color: #d6d9de;
+            font-size: 1.08rem;
+            line-height: 1.7;
+        }
+        
+        .hero-buttons {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+            margin-top: 34px;
+        }
+        
+        .button {
+            min-height: 52px;
+            padding: 0 21px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .button-rot {
+            color: var(--weiss);
+            background: var(--rot);
+        }
+        
+        .button-rot:hover {
+            background: var(--rot-dunkel);
+        }
+        
+        .button-transparent {
+            color: var(--weiss);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .button-transparent:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+        
+        .vorteile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 26px;
+            margin-top: 40px;
+            color: #e3e6e9;
+            font-size: 0.9rem;
+        }
+        
+        .vorteile>span {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+        }
+        
+        .haken {
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--schwarz);
+            background: var(--rot-hell);
+            font-size: 0.7rem;
+            font-weight: 900;
+        }
+        /* =====================================
+           LEISTUNGEN
+        ===================================== */
+        
+        .leistungen {
+            padding: 90px 20px;
+            background: var(--hellgrau);
+        }
+        
+        .bereich-inhalt {
+            width: min(1160px, 100%);
+            margin: 0 auto;
+        }
+        
+        .kleine-ueberschrift {
+            margin: 0 0 10px;
+            color: var(--rot);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .grosse-ueberschrift {
+            max-width: 750px;
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+        
+        .karten {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 40px;
+        }
+        
+        .karte {
+            padding: 30px;
+            border: 1px solid rgba(18, 20, 23, 0.09);
+            border-radius: 22px;
+            background: var(--weiss);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .karte:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.09);
+        }
+        
+        .karten-symbol {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            color: var(--weiss);
+            background: var(--rot);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .karte h3 {
+            margin: 21px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .karte p {
+            margin: 0;
+            color: var(--grau);
+            line-height: 1.65;
+        }
+        /* =====================================
+           KONTAKTBEREICH
+        ===================================== */
+        
+        .kontakt-bereich {
+            padding: 75px 20px;
+            color: var(--weiss);
+            background: var(--dunkel);
+        }
+        
+        .kontakt-inhalt {
+            width: min(1160px, 100%);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+        
+        .kontakt-text {
+            max-width: 640px;
+        }
+        
+        .kontakt-inhalt h2 {
+            margin: 0 0 10px;
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            letter-spacing: -1.4px;
+        }
+        
+        .kontakt-inhalt p {
+            margin: 0;
+            color: #b9bec6;
+            line-height: 1.6;
+        }
+        
+        .kontakt-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        /* =====================================
+           FOOTER
+        ===================================== */
+        
+        footer {
+            padding: 25px 20px;
+            color: #979ea7;
+            background: var(--schwarz);
+            font-size: 0.85rem;
+        }
+        
+        .footer-inhalt {
+            width: min(1160px, 100%);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links button {
+            padding: 3px;
+            border: 0;
+            color: #c9cdd2;
+            background: transparent;
+        }
+        
+        .footer-links button:hover {
+            color: var(--weiss);
+        }
+        /* =====================================
+           POP-UPS
+        ===================================== */
+        
+        .popup-hintergrund {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(3, 5, 7, 0.82);
+            backdrop-filter: blur(8px);
+        }
+        
+        .popup-hintergrund.offen {
+            display: flex;
+        }
+        
+        .popup {
+            position: relative;
+            width: min(620px, 100%);
+            max-height: 82vh;
+            overflow-y: auto;
+            padding: 32px;
+            border-radius: 22px;
+            background: var(--weiss);
+            box-shadow: var(--schatten);
+        }
+        
+        .popup-breit {
+            width: min(780px, 100%);
+        }
+        
+        .popup h2 {
+            margin: 0 55px 22px 0;
+            font-size: 1.8rem;
+        }
+        
+        .popup h3 {
+            margin: 27px 0 8px;
+            font-size: 1.05rem;
+        }
+        
+        .popup p {
+            margin: 0 0 12px;
+            color: #4f5660;
+            line-height: 1.65;
+        }
+        
+        .popup-schliessen {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            color: var(--text);
+            background: var(--hellgrau);
+            font-size: 1.3rem;
+        }
+        
+        .popup-schliessen:hover {
+            background: #e5e7e9;
+        }
+        
+        .info-liste {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .info-zeile {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            border-radius: 13px;
+            background: var(--hellgrau);
+        }
+        
+        .info-symbol {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 11px;
+            color: var(--weiss);
+            background: var(--rot);
+        }
+        
+        .info-zeile small {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--grau);
+        }
+        
+        .kontakt-link {
+            padding: 0;
+            border: 0;
+            color: var(--text);
+            background: transparent;
+            font-weight: 700;
+            text-align: left;
+        }
+        
+        .kontakt-link:hover {
+            color: var(--rot);
+            text-decoration: underline;
+        }
+        
+        .social-media {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .social-link {
+            min-height: 52px;
+            border: 0;
+            border-radius: 12px;
+            color: var(--weiss);
+            background: var(--dunkel);
+            font-weight: 700;
+        }
+        
+        .social-link:hover {
+            background: var(--rot);
+        }
+        
+        .oeffnungszeiten {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .oeffnungszeiten td {
+            padding: 13px 6px;
+            border-bottom: 1px solid rgba(18, 20, 23, 0.1);
+        }
+        
+        .oeffnungszeiten td:last-child {
+            text-align: right;
+            font-weight: 700;
+        }
+        /* =====================================
+           TABLET
+        ===================================== */
+        
+        @media (max-width: 980px) {
+            .menue-button {
+                display: flex;
+            }
+            nav {
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                left: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                padding: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 16px;
+                background: rgba(13, 16, 20, 0.99);
+                box-shadow: var(--schatten);
+            }
+            nav.offen {
+                display: flex;
+            }
+            nav button {
+                width: 100%;
+                min-height: 46px;
+                padding: 0 14px;
+                text-align: left;
+            }
+            .karten {
+                grid-template-columns: 1fr;
+            }
+            .kontakt-inhalt {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+        /* =====================================
+           SMARTPHONE
+        ===================================== */
+        
+        @media (max-width: 600px) {
+            .navigation {
+                width: calc(100% - 28px);
+                min-height: 70px;
+            }
+            .logo {
+                gap: 9px;
+            }
+            .logo-symbol {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+            }
+            .logo-text strong {
+                font-size: 0.9rem;
+            }
+            .logo-text small {
+                font-size: 0.65rem;
+            }
+            .menue-button {
+                width: 42px;
+                height: 42px;
+            }
+            nav {
+                top: calc(100% + 8px);
+            }
+            .hero {
+                min-height: 100svh;
+                background-position: 65% center;
+            }
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(5, 7, 9, 0.28);
+            }
+            .hero-inhalt {
+                width: calc(100% - 28px);
+                padding: 115px 0 60px;
+            }
+            .standort-hinweis {
+                padding: 8px 11px;
+                font-size: 0.64rem;
+                letter-spacing: 0.4px;
+            }
+            .hero h1 {
+                margin-top: 21px;
+                font-size: clamp(2.65rem, 14vw, 4.1rem);
+                line-height: 1;
+                letter-spacing: -2px;
+            }
+            .hero h2 {
+                font-size: 1.22rem;
+            }
+            .hero-beschreibung {
+                font-size: 0.98rem;
+                line-height: 1.6;
+            }
+            .hero-buttons {
+                width: 100%;
+                margin-top: 28px;
+            }
+            .button {
+                width: 100%;
+            }
+            .vorteile {
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 30px;
+            }
+            .leistungen {
+                padding: 65px 14px;
+            }
+            .karten {
+                margin-top: 30px;
+            }
+            .karte {
+                padding: 24px;
+            }
+            .kontakt-bereich {
+                padding: 60px 14px;
+            }
+            .kontakt-buttons {
+                width: 100%;
+                flex-direction: column;
+            }
+            footer {
+                padding: 25px 14px;
+            }
+            .footer-inhalt {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+            .popup-hintergrund {
+                padding: 10px;
+            }
+            .popup {
+                width: 100%;
+                max-height: 88vh;
+                padding: 25px 19px;
+                border-radius: 18px;
+            }
+            .popup h2 {
+                font-size: 1.55rem;
+            }
+            .social-media {
+                grid-template-columns: 1fr;
+            }
+            .oeffnungszeiten td {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .logo-text small {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .intro {
+                animation: introAusblenden 0.1s linear 1.5s forwards, introEntfernen 0s linear 1.6s forwards;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- WILLKOMMENSANZEIGE -->
+
+    <div class="intro" id="intro">
+        <div class="intro-inhalt">
+            <div class="intro-logo">SGS</div>
+            <h2>Willkommen</h2>
+            <p>SGS Gutachter Koblenz</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="navigation">
+
+            <button type="button" class="logo" id="logoButton" aria-label="Zur Startseite">
+
+                <span class="logo-symbol">SGS</span>
+
+                <span class="logo-text">
+                    <strong>Gutachter Koblenz</strong>
+                    <small>Kfz-Sachverständiger</small>
+                </span>
+            </button>
+
+            <button class="menue-button" id="menueButton" type="button" aria-label="Menü öffnen" aria-expanded="false">
+
+                <span id="menueSymbol">☰</span>
+            </button>
+
+            <nav id="navigation" aria-label="Hauptnavigation">
+
+                <button type="button" data-popup="ueberUnsPopup">
+                    Über uns
+                </button>
+
+                <button type="button" data-popup="kontaktPopup">
+                    Kontakt
+                </button>
+
+                <button type="button" data-popup="oeffnungszeitenPopup">
+                    Öffnungszeiten
+                </button>
+
+                <button type="button" data-popup="impressumPopup">
+                    Impressum
+                </button>
+
+                <button type="button" data-popup="datenschutzPopup">
+                    Datenschutz
+                </button>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- STARTBEREICH -->
+
+        <section class="hero" id="start">
+            <div class="hero-inhalt">
+
+                <div class="standort-hinweis">
+                    <span class="standort-punkt"></span> Ihr Ansprechpartner in Koblenz
+                </div>
+
+                <h1>
+                    Oktay <span>Sengülsen</span>
+                </h1>
+
+                <h2>Kfz-Sachverständiger</h2>
+
+                <p class="hero-beschreibung">
+                    Kompetente Unterstützung rund um Unfallgutachten und Fahrzeugbewertungen. Persönlich erreichbar, zuverlässig und unkompliziert.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button type="button" class="button button-rot" data-popup="kontaktPopup">
+
+                        Kontakt aufnehmen
+                    </button>
+
+                    <button type="button" class="button button-transparent" id="standortButton">
+
+                        Standort anzeigen
+                    </button>
+
+                </div>
+
+                <div class="vorteile">
+
+                    <span>
+                        <span class="haken">✓</span> Persönliche Beratung
+                    </span>
+
+                    <span>
+                        <span class="haken">✓</span> Schnelle Erreichbarkeit
+                    </span>
+
+                    <span>
+                        <span class="haken">✓</span> Standort Koblenz
+                    </span>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LEISTUNGEN -->
+
+        <section class="leistungen">
+            <div class="bereich-inhalt">
+
+                <p class="kleine-ueberschrift">
+                    Unsere Leistungen
+                </p>
+
+                <h2 class="grosse-ueberschrift">
+                    Klare Unterstützung, wenn es darauf ankommt.
+                </h2>
+
+                <div class="karten">
+
+                    <article class="karte">
+                        <div class="karten-symbol">!</div>
+
+                        <h3>Unfallgutachten</h3>
+
+                        <p>
+                            Professionelle Begutachtung Ihres Fahrzeugs nach einem Unfall und verständliche persönliche Beratung.
+                        </p>
+                    </article>
+
+                    <article class="karte">
+                        <div class="karten-symbol">⌕</div>
+
+                        <h3>Fahrzeugbewertung</h3>
+
+                        <p>
+                            Nachvollziehbare Bewertung des Fahrzeugzustands als fundierte Grundlage für Ihre nächsten Schritte.
+                        </p>
+                    </article>
+
+                    <article class="karte">
+                        <div class="karten-symbol">✉</div>
+
+                        <h3>Direkter Kontakt</h3>
+
+                        <p>
+                            Persönliche Erreichbarkeit per Telefon oder E-Mail, ohne unnötige Umwege.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KONTAKTBEREICH -->
+
+        <section class="kontakt-bereich">
+            <div class="kontakt-inhalt">
+
+                <div class="kontakt-text">
+                    <h2>Sie benötigen einen Gutachter?</h2>
+
+                    <p>
+                        Öffnen Sie die Kontaktdaten oder schreiben Sie direkt eine E-Mail.
+                    </p>
+                </div>
+
+                <div class="kontakt-buttons">
+
+                    <button type="button" class="button button-rot" data-popup="kontaktPopup">
+
+                        Kontaktdaten anzeigen
+                    </button>
+
+                    <button type="button" class="button button-transparent" id="emailButton">
+
+                        E-Mail schreiben
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="footer-inhalt">
+
+            <span>
+                © <span id="jahr"></span> SGS Kfz-Sachverständiger Koblenz
+            </span>
+
+            <div class="footer-links">
+
+                <button type="button" data-popup="impressumPopup">
+                    Impressum
+                </button>
+
+                <span>·</span>
+
+                <button type="button" data-popup="datenschutzPopup">
+                    Datenschutz
+                </button>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ÜBER UNS -->
+
+    <div class="popup-hintergrund" id="ueberUnsPopup">
+        <div class="popup">
+
+            <button type="button" class="popup-schliessen" aria-label="Fenster schließen">
+
+                ×
+            </button>
+
+            <h2>Über uns</h2>
+
+            <p>
+                SGS Gutachter Koblenz ist Ihr Ansprechpartner für Unfallgutachten und Fahrzeugbewertungen in Koblenz.
+            </p>
+
+            <p>
+                Folgen Sie SGS Gutachter Koblenz auf Social Media.
+            </p>
+
+            <div class="social-media">
+
+                <button type="button" class="social-link" id="tiktokButton">
+
+                    TikTok
+                </button>
+
+                <button type="button" class="social-link" id="instagramButton">
+
+                    Instagram
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- KONTAKT -->
+
+    <div class="popup-hintergrund" id="kontaktPopup">
+        <div class="popup">
+
+            <button type="button" class="popup-schliessen" aria-label="Fenster schließen">
+
+                ×
+            </button>
+
+            <h2>Kontakt</h2>
+
+            <div class="info-liste">
+
+                <div class="info-zeile">
+                    <span class="info-symbol">☎</span>
+
+                    <div>
+                        <small>Telefon</small>
+
+                        <button type="button" class="kontakt-link" id="telefonButton">
+
+                            +49 176 40388511
+                        </button>
+                    </div>
+                </div>
+
+                <div class="info-zeile">
+                    <span class="info-symbol">✉</span>
+
+                    <div>
+                        <small>E-Mail</small>
+
+                        <button type="button" class="kontakt-link" id="kontaktEmailButton">
+
+                            info@sgs-gutachter.de
+                        </button>
+                    </div>
+                </div>
+
+                <div class="info-zeile">
+                    <span class="info-symbol">●</span>
+
+                    <div>
+                        <small>Standort</small>
+
+                        <button type="button" class="kontakt-link" id="kontaktStandortButton">
+
+                            Josef-Cornelius-Str. 31, 56070 Koblenz
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ÖFFNUNGSZEITEN -->
+
+    <div class="popup-hintergrund" id="oeffnungszeitenPopup">
+        <div class="popup">
+
+            <button type="button" class="popup-schliessen" aria-label="Fenster schließen">
+
+                ×
+            </button>
+
+            <h2>Öffnungszeiten</h2>
+
+            <table class="oeffnungszeiten">
+                <tbody>
+                    <tr>
+                        <td>Montag</td>
+                        <td>08:00 – 18:00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Dienstag</td>
+                        <td>08:00 – 18:00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mittwoch</td>
+                        <td>08:00 – 18:00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Donnerstag</td>
+                        <td>08:00 – 18:00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Freitag</td>
+                        <td>08:00 – 18:00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Samstag</td>
+                        <td>08:00 – 16:00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sonntag</td>
+                        <td>Geschlossen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <!-- IMPRESSUM -->
+
+    <div class="popup-hintergrund" id="impressumPopup">
+        <div class="popup popup-breit">
+
+            <button type="button" class="popup-schliessen" aria-label="Fenster schließen">
+
+                ×
+            </button>
+
+            <h2>Impressum</h2>
+
+            <h3>Angaben gemäß § 5 TMG</h3>
+
+            <p>
+                <strong>SGS Kfz-Sachverständiger Koblenz</strong><br> Oktay Sengülsen<br> Arenberger Str. 71<br> 56077 Koblenz
+            </p>
+
+            <h3>Kontakt</h3>
+
+            <p>
+                Telefon: 0176 40388511<br> E-Mail: info@sgs-gutachter.de
+            </p>
+
+            <h3>Vertreten durch</h3>
+
+            <p>Oktay Sengülsen</p>
+
+            <h3>Berufsbezeichnung</h3>
+
+            <p>Kfz-Sachverständiger</p>
+
+        </div>
+    </div>
+
+    <!-- DATENSCHUTZ -->
+
+    <div class="popup-hintergrund" id="datenschutzPopup">
+        <div class="popup popup-breit">
+
+            <button type="button" class="popup-schliessen" aria-label="Fenster schließen">
+
+                ×
+            </button>
+
+            <h2>Datenschutzerklärung</h2>
+
+            <h3>1. Verantwortlicher</h3>
+
+            <p>
+                SGS Kfz-Sachverständiger Koblenz<br> Oktay Sengülsen<br> Arenberger Str. 71<br> 56077 Koblenz<br> E-Mail: info@sgs-gutachter.de
+            </p>
+
+            <h3>2. Verarbeitung personenbezogener Daten</h3>
+
+            <p>
+                Wir verarbeiten personenbezogene Daten, beispielsweise Name, Telefonnummer und E-Mail-Adresse, die Sie uns freiwillig per Telefon oder E-Mail mitteilen.
+            </p>
+
+            <h3>3. Zwecke der Datenverarbeitung</h3>
+
+            <p>
+                Die Verarbeitung erfolgt zur Kontaktaufnahme, Terminvereinbarung, Erstellung von Kfz-Gutachten, Rechnungsstellung und Abwicklung von Aufträgen.
+            </p>
+
+            <h3>4. Rechtsgrundlage</h3>
+
+            <p>
+                Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO und Art. 6 Abs. 1 lit. f DSGVO.
+            </p>
+
+            <h3>5. Weitergabe von Daten</h3>
+
+            <p>
+                Eine Weitergabe kann im Rahmen des Gutachtens an Versicherungen, Rechtsanwälte oder eingesetzte Dienstleister erfolgen.
+            </p>
+
+            <h3>6. Externe Links</h3>
+
+            <p>
+                Die Website enthält externe Links zu Google Maps, TikTok und Instagram. Beim Öffnen gelten die Datenschutzbestimmungen des jeweiligen Anbieters.
+            </p>
+
+            <h3>7. Speicherdauer</h3>
+
+            <p>
+                Personenbezogene Daten werden nur so lange gespeichert, wie es für die Bearbeitung und gesetzliche Aufbewahrungsfristen erforderlich ist.
+            </p>
+
+            <h3>8. Rechte betroffener Personen</h3>
+
+            <p>
+                Betroffene Personen haben insbesondere Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch nach Maßgabe der DSGVO.
+            </p>
+
+            <h3>9. Beschwerderecht</h3>
+
+            <p>
+                Landesbeauftragter für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz<br> Hintere Bleiche 34<br> 55116 Mainz
+            </p>
+
+        </div>
+    </div>
+
+    <script>
+        const navigation =
+            document.getElementById("navigation");
+
+        const menueButton =
+            document.getElementById("menueButton");
+
+        const menueSymbol =
+            document.getElementById("menueSymbol");
+
+        document.getElementById("jahr").textContent =
+            new Date().getFullYear();
+
+        function menueSchliessen() {
+            navigation.classList.remove("offen");
+            menueButton.setAttribute("aria-expanded", "false");
+            menueSymbol.textContent = "☰";
+        }
+
+        menueButton.addEventListener("click", function() {
+            const istOffen =
+                navigation.classList.toggle("offen");
+
+            menueButton.setAttribute(
+                "aria-expanded",
+                String(istOffen)
+            );
+
+            menueSymbol.textContent =
+                istOffen ? "×" : "☰";
+        });
+
+        document
+            .getElementById("logoButton")
+            .addEventListener("click", function() {
+                document
+                    .getElementById("start")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                menueSchliessen();
+            });
+
+        function popupOeffnen(popupId) {
+            const popup =
+                document.getElementById(popupId);
+
+            if (!popup) {
+                return;
+            }
+
+            popup.classList.add("offen");
+            document.body.classList.add("popup-offen");
+            menueSchliessen();
+        }
+
+        function popupSchliessen(popup) {
+            if (!popup) {
+                return;
+            }
+
+            popup.classList.remove("offen");
+            document.body.classList.remove("popup-offen");
+        }
+
+        document
+            .querySelectorAll("[data-popup]")
+            .forEach(function(button) {
+                button.addEventListener("click", function() {
+                    popupOeffnen(
+                        button.getAttribute("data-popup")
+                    );
+                });
+            });
+
+        document
+            .querySelectorAll(".popup-schliessen")
+            .forEach(function(button) {
+                button.addEventListener("click", function() {
+                    popupSchliessen(
+                        button.closest(".popup-hintergrund")
+                    );
+                });
+            });
+
+        document
+            .querySelectorAll(".popup-hintergrund")
+            .forEach(function(hintergrund) {
+                hintergrund.addEventListener(
+                    "click",
+                    function(event) {
+                        if (event.target === hintergrund) {
+                            popupSchliessen(hintergrund);
+                        }
+                    }
+                );
+            });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                const offenesPopup =
+                    document.querySelector(
+                        ".popup-hintergrund.offen"
+                    );
+
+                if (offenesPopup) {
+                    popupSchliessen(offenesPopup);
+                } else {
+                    menueSchliessen();
+                }
+            }
+        });
+
+        function telefonOeffnen() {
+            window.location.href =
+                "tel:" + "+4917640388511";
+        }
+
+        function emailOeffnen() {
+            window.location.href =
+                "mailto:" + "info@sgs-gutachter.de";
+        }
+
+        function standortOeffnen() {
+            const adresse =
+                "Josef-Cornelius-Str. 31, 56070 Koblenz";
+
+            const mapsAdresse =
+                "https:" +
+                "//www.google.com/maps?q=" +
+                encodeURIComponent(adresse);
+
+            window.open(
+                mapsAdresse,
+                "_blank",
+                "noopener,noreferrer"
+            );
+        }
+
+        document
+            .getElementById("telefonButton")
+            .addEventListener("click", telefonOeffnen);
+
+        document
+            .getElementById("emailButton")
+            .addEventListener("click", emailOeffnen);
+
+        document
+            .getElementById("kontaktEmailButton")
+            .addEventListener("click", emailOeffnen);
+
+        document
+            .getElementById("standortButton")
+            .addEventListener("click", standortOeffnen);
+
+        document
+            .getElementById("kontaktStandortButton")
+            .addEventListener("click", standortOeffnen);
+
+        document
+            .getElementById("tiktokButton")
+            .addEventListener("click", function() {
+                const adresse =
+                    "https:" +
+                    "//www.tiktok.com/@sgs.gutachter.koblenz";
+
+                window.open(
+                    adresse,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+            });
+
+        document
+            .getElementById("instagramButton")
+            .addEventListener("click", function() {
+                const adresse =
+                    "https:" +
+                    "//www.instagram.com/sgs_kfz_gutachter";
+
+                window.open(
+                    adresse,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+            });
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth > 980) {
+                menueSchliessen();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
